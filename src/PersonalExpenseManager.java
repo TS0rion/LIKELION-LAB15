@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class PersonalExpenseManager {
 
-    static double tienDien = 0;
-    static double tienTaxi = 0;
-    static double tienLuong = 0;
+    static int tienDien = 0;
+    static int tienTaxi = 0;
+    static int tienLuong = 0;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -48,27 +48,27 @@ public class PersonalExpenseManager {
 
     public static void tinhTienDien(Scanner scanner) {
         System.out.print("Nhập số kWh tiêu thụ: ");
-        double kwh = Double.parseDouble(scanner.nextLine());
-        double donGia = 3000; 
+        int kwh = Integer.parseInt(scanner.nextLine());
+        int donGia = 3000;
         tienDien = kwh * donGia;
         System.out.println("=> Tiền điện tháng này: " + tienDien + " VND");
     }
 
     public static void tinhTienTaxi(Scanner scanner) {
         System.out.print("Nhập số tiền đi taxi 1 lần: ");
-        tienTaxi = Double.parseDouble(scanner.nextLine());
+        tienTaxi = Integer.parseInt(scanner.nextLine());
         System.out.println("=> Tiền taxi tháng này: " + tienTaxi + " VND");
     }
 
     public static void tinhTienLuong(Scanner scanner) {
         System.out.print("Nhập tổng lương trước thuế: ");
-        double luongGoc = Double.parseDouble(scanner.nextLine());
-        tienLuong = luongGoc * 0.85; 
+        int luongGoc = Integer.parseInt(scanner.nextLine());
+        tienLuong = (int) (luongGoc * 0.85);
         System.out.println("=> Tiền lương thực nhận sau thuế: " + tienLuong + " VND");
     }
 
     public static void tinhTongThuNhapSauChiTieu() {
-        double thuNhapRong = tienLuong - tienDien - tienTaxi;
+        int thuNhapRong = tienLuong - tienDien - tienTaxi;
         System.out.println("=> Tổng thu nhập sau khi chi tiêu: " + thuNhapRong + " VND");
     }
 }
